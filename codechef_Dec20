@@ -1,0 +1,98 @@
+package codechef_dec;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+import codechef_dec.Attendence.FastReader;
+
+public class Strings {
+	
+	static class FastReader 
+    { 
+        BufferedReader br; 
+        StringTokenizer st; 
+  
+        public FastReader() 
+        { 
+            br = new BufferedReader(new
+                     InputStreamReader(System.in)); 
+        } 
+  
+        String next() 
+        { 
+            while (st == null || !st.hasMoreElements()) 
+            { 
+                try
+                { 
+                    st = new StringTokenizer(br.readLine()); 
+                } 
+                catch (IOException  e) 
+                { 
+                    e.printStackTrace(); 
+                } 
+            } 
+            return st.nextToken(); 
+        } 
+  
+        int nextInt() 
+        { 
+            return Integer.parseInt(next()); 
+        } 
+  
+        long nextLong() 
+        { 
+            return Long.parseLong(next()); 
+        } 
+  
+        double nextDouble() 
+        { 
+            return Double.parseDouble(next()); 
+        } 
+  
+        String nextLine() 
+        { 
+            String str = ""; 
+            try
+            { 
+                str = br.readLine(); 
+            } 
+            catch (IOException e) 
+            { 
+                e.printStackTrace(); 
+            } 
+            return str; 
+        }
+    }
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		FastReader sc=new FastReader();
+		 int testcases=sc.nextInt();
+		 while(testcases-->0) {
+			 String str=sc.nextLine();
+			 int onescount=0,zeroscount=0;
+			 if(str.length()%2==0) {
+				 for(int i=0;i<str.length();i++) {
+					 if(str.charAt(i)=='1')
+						 onescount++;
+				 }
+				 zeroscount=str.length()-onescount;
+				 if(onescount==zeroscount)
+					 System.out.println("0");
+				 else if(onescount>zeroscount) {
+					 System.out.println((str.length()/2)-zeroscount);
+				 }
+				 else {
+					 System.out.println((str.length()/2)-onescount);
+				 }
+			 }
+			 else if(onescount==0 || zeroscount==0)
+				 System.out.println("-1");
+			 else
+				 System.out.println("-1");
+		 }
+
+	}
+
+}
